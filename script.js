@@ -5,6 +5,7 @@ const addTodoInput = document.createElement('input');
 addTodoInput.classList.add('addTodoInput');
 const addTodoButton = document.createElement('button');
 addTodoButton.classList.add('addTodoButton');
+addTodoButton.innerText = 'submit';
 const todo = document.createElement('div');
 todo.classList.add('todo-area');
 const ShowDone = document.createElement('button');
@@ -13,6 +14,10 @@ ShowDone.innerText = 'show todos is Done';
 const add = document.createElement('button');
 add.classList.add('add');
 add.innerText = '+';
+ShowDone.style.display = 'none';
+addTodoButton.style.display = 'none';
+addTodoInput.style.display = 'none';
+/**to show the buttons for new todo */
 const addTodo = (val) => {
 	if (val) {
 		addTodoButton.style.display = 'inline';
@@ -25,35 +30,27 @@ const addTodo = (val) => {
 		add.style.display = 'inline';
 	}
 };
+/**click on the button +*/
 add.addEventListener('click', () => addTodo(true));
-ShowDone.style.display = 'none';
-addTodoButton.style.display = 'none';
-addTodoInput.style.display = 'none';
 const donesFilter = () => {
 	let done = todos.filter((todo) => todo.isCompleted === true);
 	if (done.length > 0) return (ShowDone.style.display = 'block');
 	else return (ShowDone.style.display = 'none');
 };
-
-addTodoButton.innerText = 'submit';
-
-window.onload = function () {
-	document.querySelector('input').focus();
-};
-
+/**enter key to submit */
 document.onkeydown = function (e) {
 	if (e.key == 'Enter') {
 		Enter(false);
-		document.querySelector('input').focus();
 	}
 };
+/**click button to submit */
 addTodoButton.addEventListener('click', () => {
 	Enter(false);
-	document.querySelector('input').focus();
 });
 
 const toggleColor = document.createElement('button');
 toggleColor.innerText = 'toggle color';
+/**push new todo */
 const Enter = (val) => {
 	if (addTodoInput.value === '' && !val) {
 		alert('Please enter a value');
@@ -74,22 +71,22 @@ const Enter = (val) => {
 		console.log(todos);
 	}
 };
-
+/**render the screen*/
 const addTodos = (todoArr) => {
-	todo.innerText = '';
-	todoArr.forEach((item, index) => {
+	todo.innerText = ''; //clear all the todos
+	todoArr.forEach((item) => {
 		addTodoInput.value = '';
 		const areaTodo = document.createElement('div');
 		areaTodo.classList.add('area-todo');
 		const todoButton = document.createElement('button');
+		todoButton.innerText = 'Done';
+		todoButton.classList.add(`btn${item.id}`);
 		const changeButton = document.createElement('button');
+		changeButton.innerText = 'EDIT';
 		const todoButtonRemove = document.createElement('button');
 		todoButtonRemove.innerText = 'REMOVE';
-		changeButton.innerText = 'EDIT';
-
 		todoButtonRemove.classList.add(`btn${item.id}`);
-		todoButton.classList.add(`btn${item.id}`);
-		todoButton.innerText = 'Done';
+
 		const p_text = document.createElement('p');
 		p_text.innerText = item.title;
 		if (item.isCompleted) {
@@ -101,16 +98,17 @@ const addTodos = (todoArr) => {
 		areaTodo.appendChild(todoButton);
 		areaTodo.appendChild(todoButtonRemove);
 		areaTodo.appendChild(changeButton);
+
+		/**remove todo */
 		todoButtonRemove.addEventListener('click', (item) => {
-			// debugger;
-			console.log(item.target.className);
-			console.log(item.target.className.split('btn')[1]);
 			const isId = (element) =>
 				+element.id === item.target.className.split('btn')[1];
 			let indx = todos.findIndex(isId);
 			todos.pop(todos[indx]);
 			addTodos(todos);
 		});
+
+		/**edit title */
 		changeButton.addEventListener('click', () => {
 			const updateTodo = document.createElement('input');
 			const updateTodoButton = document.createElement('button');
@@ -126,7 +124,7 @@ const addTodos = (todoArr) => {
 			areaTodo.appendChild(updateTodoButton);
 
 			updateTodo.focus();
-
+			/**save the new title */
 			updateTodoButton.addEventListener('click', () => {
 				const isId = (element) => +element.id === +item.id;
 				let indx = todos.findIndex(isId);
@@ -138,7 +136,7 @@ const addTodos = (todoArr) => {
 				}
 			});
 		});
-
+		/**checked done or not done for the the todo */
 		todoButton.addEventListener('click', (item) => {
 			const isId = (element) =>
 				+element.id === +item.target.className.split('btn')[1];
@@ -155,6 +153,7 @@ const addTodos = (todoArr) => {
 		});
 	});
 };
+/**show the done`s todos */
 ShowDone.addEventListener('click', () => {
 	let dones = [];
 	if (done) {
@@ -169,6 +168,7 @@ ShowDone.addEventListener('click', () => {
 	}
 	done = !done;
 });
+/**toggle button */
 toggleColor.addEventListener('click', () => {
 	const btns = document.querySelectorAll('button');
 	const inputs = document.querySelectorAll('input');
@@ -176,12 +176,10 @@ toggleColor.addEventListener('click', () => {
 		document.body.style.backgroundColor = 'black';
 		document.body.style.color = 'white';
 		btns.forEach((b) => {
-			// b.style.backgroundColor = 'black';
 			b.style.color = 'white';
 			b.style.border = 'white 1px solid ';
 		});
 		inputs.forEach((i) => {
-			// i.style.backgroundColor = 'black';
 			i.style.color = 'white';
 			i.style.border = 'white 1px solid ';
 		});
@@ -189,12 +187,10 @@ toggleColor.addEventListener('click', () => {
 		document.body.style.backgroundColor = 'white';
 		document.body.style.color = 'black';
 		btns.forEach((b) => {
-			// b.style.backgroundColor = 'white';
 			b.style.color = 'black';
 			b.style.border = 'black 1px solid ';
 		});
 		inputs.forEach((i) => {
-			// i.style.backgroundColor = 'white';
 			i.style.color = 'black';
 			i.style.border = 'black 1px solid ';
 		});
