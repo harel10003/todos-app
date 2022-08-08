@@ -1,0 +1,43 @@
+body {
+	margin: 10px auto;
+	width: 50%;
+}
+p {
+	text-align: center;
+	font-size: 35px;
+	padding: 0;
+	width: 60%;
+}
+input {
+	width: 50%;
+	padding: 10px;
+	border-radius: 20px;
+	font-size: 35px;
+}
+.addTodoInput:focus {
+	/* border: none; */
+}
+.area-todo {
+	border: 1px solid #000;
+	border-radius: 10px;
+	margin: 5px;
+
+	padding: 10px;
+}
+
+button {
+	width: 20%;
+	margin: 5px;
+	padding: 10px 10px;
+	border-radius: 30px;
+	background-color: aquamarine;
+}
+.btnShowDone {
+	margin: 0;
+	width: 100%;
+}
+.area-todo {
+	display: flex;
+	flex-direction: row;
+	height: 10%;
+}
