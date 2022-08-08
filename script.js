@@ -104,7 +104,7 @@ const addTodos = (todoArr) => {
 			const isId = (element) =>
 				+element.id === item.target.className.split('btn')[1];
 			let indx = todos.findIndex(isId);
-			todos.pop(todos[indx]);
+			todos.slice(todos[indx], 1);
 			addTodos(todos);
 		});
 
