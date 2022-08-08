@@ -4,24 +4,21 @@ body {
 }
 p {
 	text-align: center;
-	font-size: 35px;
+	font-size: 25px;
 	padding: 0;
 	width: 60%;
 }
 input {
 	width: 50%;
-	padding: 10px;
+	padding: 3px;
 	border-radius: 20px;
-	font-size: 35px;
+	font-size: 25px;
 }
-.addTodoInput:focus {
-	/* border: none; */
-}
+
 .area-todo {
 	border: 1px solid #000;
 	border-radius: 10px;
 	margin: 5px;
-
 	padding: 10px;
 }
 
@@ -41,6 +38,9 @@ button {
 	flex-direction: row;
 	height: 10%;
 }
+.add {
+	width: 75%;
+}
 @media screen and (max-width: 600px) {
 	body {
 		margin: 10px auto;
@@ -53,7 +53,7 @@ button {
 	button {
 		width: 30%;
 		margin: 1px;
-		padding: 3px;
+		padding: 2px 1px;
 		border-radius: 30px;
 		background-color: aquamarine;
 	}
@@ -63,4 +63,57 @@ button {
 		border-radius: 20px;
 		font-size: 20px;
 	}
+}
+
+/* CSS */
+button {
+	appearance: none;
+	background-color: #2ea44f;
+	border: 1px solid rgba(27, 31, 35, 0.15);
+	border-radius: 6px;
+	box-shadow: rgba(27, 31, 35, 0.1) 0 1px 0;
+	box-sizing: border-box;
+	color: #fff;
+	cursor: pointer;
+	display: inline-block;
+	font-family: -apple-system, system-ui, 'Segoe UI', Helvetica, Arial,
+		sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 20px;
+	padding: 6px 16px;
+	position: relative;
+	text-align: center;
+	text-decoration: none;
+	user-select: none;
+	-webkit-user-select: none;
+	touch-action: manipulation;
+	vertical-align: middle;
+	white-space: nowrap;
+}
+
+button:focus:not(:focus-visible):not(.focus-visible) {
+	box-shadow: none;
+	outline: none;
+}
+
+button:hover {
+	background-color: #2c974b;
+}
+
+button:focus {
+	box-shadow: rgba(46, 164, 79, 0.4) 0 0 0 3px;
+	outline: none;
+}
+
+button:disabled {
+	background-color: #94d3a2;
+	border-color: rgba(27, 31, 35, 0.1);
+	color: rgba(255, 255, 255, 0.8);
+	cursor: default;
+}
+
+button:active {
+	background-color: #298e46;
+	box-shadow: rgba(20, 70, 32, 0.2) 0 1px 0 inset;
 }

@@ -176,12 +176,12 @@ toggleColor.addEventListener('click', () => {
 		document.body.style.backgroundColor = 'black';
 		document.body.style.color = 'white';
 		btns.forEach((b) => {
-			b.style.backgroundColor = 'black';
+			// b.style.backgroundColor = 'black';
 			b.style.color = 'white';
 			b.style.border = 'white 1px solid ';
 		});
 		inputs.forEach((i) => {
-			i.style.backgroundColor = 'black';
+			// i.style.backgroundColor = 'black';
 			i.style.color = 'white';
 			i.style.border = 'white 1px solid ';
 		});
@@ -189,12 +189,12 @@ toggleColor.addEventListener('click', () => {
 		document.body.style.backgroundColor = 'white';
 		document.body.style.color = 'black';
 		btns.forEach((b) => {
-			b.style.backgroundColor = 'white';
+			// b.style.backgroundColor = 'white';
 			b.style.color = 'black';
 			b.style.border = 'black 1px solid ';
 		});
 		inputs.forEach((i) => {
-			i.style.backgroundColor = 'white';
+			// i.style.backgroundColor = 'white';
 			i.style.color = 'black';
 			i.style.border = 'black 1px solid ';
 		});
