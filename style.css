@@ -41,3 +41,26 @@ button {
 	flex-direction: row;
 	height: 10%;
 }
+@media screen and (max-width: 600px) {
+	body {
+		margin: 10px auto;
+		width: 90%;
+	}
+	p {
+		font-size: 20px;
+		width: 40%;
+	}
+	button {
+		width: 30%;
+		margin: 1px;
+		padding: 3px;
+		border-radius: 30px;
+		background-color: aquamarine;
+	}
+	input {
+		width: 30%;
+		padding: 3px;
+		border-radius: 20px;
+		font-size: 20px;
+	}
+}
